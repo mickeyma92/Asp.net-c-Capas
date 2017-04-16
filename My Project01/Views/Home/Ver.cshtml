@@ -1,0 +1,35 @@
+﻿@model Model.Alumno
+@{
+    ViewBag.Title = Model.Nombre +" "+ Model.Apellido;
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+
+<h2>@(Model.Nombre+" "+Model.Apellido)</h2>
+<ol class="breadcrumb">
+    <li><a href="~/">Alumnos</a></li>
+    <li class="active">@(Model.Nombre + " " + Model.Apellido)</li>
+</ol>
+<div class="card card-block">
+    <h4 class="card-title">Información personal</h4>
+    <dl class="dl-horizontal">
+        <dt>Nombre</dt>
+        <dd>@Model.Nombre</dd>
+        <dt>Apellido</dt>
+        <dd>@Model.Apellido</dd>
+    </dl>
+</div>
+<div class="card">
+    <div class="card-header elegant-color-dark white-text">
+        Asignaturas seleccionadas
+    </div>
+    <div class="card-block">
+        <ul class="list-group">
+            @foreach (var c in Model.Cursos)
+            {
+                <li class="list-group-item">
+                    @c.Nombre
+                </li>
+            }
+        </ul>
+    </div>
+</div>

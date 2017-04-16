@@ -1,0 +1,33 @@
+﻿@model List<Model.Alumno> 
+@{
+    ViewBag.Title = "Alumnos";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+
+<h2>Alumno</h2>
+<div class="text-left">
+    <a class="btn btn-primary" href="~/Home/Crud/" title="Agregar"><i class="fa fa-plus-circle" aria-hidden="true"></i></a>
+</div>
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var a in Model)
+        {
+            <tr>
+            <td>@a.Nombre</td>
+            <td>@a.Apellido</td>
+            <td class="text-right">
+                <a class="btn btn-success" href="~/Home/ver/@a.id" title="Visualizar"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                <a class="btn btn-default" href="~/Home/Crud/@a.id" title="Editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+            </td>
+        </tr>    
+        }
+        
+    </tbody>
+</table>
